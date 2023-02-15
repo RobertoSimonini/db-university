@@ -78,11 +78,11 @@ GROUP BY (`departments`);
 
 -- 1. Selezionare tutti gli studenti iscritti al Corso di Laurea in Economia
 
-SELECT `students`.`name`, `students`.`surname`, `degrees`.`name` AS 'Corso di Laurea'
-FROM `students`
-JOIN `degrees`
-ON `students`.`id`= `degree_id`
-WHERE `degrees`. `name` = 'Corso di Laurea in Economia';
+SELECT `students`.`name` AS 'Name', `students`.`surname` AS 'Surname', `degrees`.`name` AS 'Degrees'
+FROM `degrees`
+JOIN `students`
+ON `degrees`.`id` = `students`.`degree_id`
+WHERE `degrees`.`name` = 'Corso di Laurea in Economia';
 
 -- 2. Selezionare tutti i Corsi di Laurea del Dipartimento di Neuroscienze
 
