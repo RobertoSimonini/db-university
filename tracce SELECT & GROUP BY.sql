@@ -96,9 +96,10 @@ WHERE `departments`.`name`= 'Dipartimento di Neuroscienze';
 
 SELECT `teachers`.`name`, `teachers`.`surname` AS 'Insegnante', `courses`.`name` AS 'Nome Corso'
 FROM `teachers`
-JOIN `courses`
 JOIN `course_teacher`
-ON `teachers`.`id`= `course_id`
+ON `teachers`.`id`= `teacher_id`
+JOIN `courses`
+ON `courses`.`id`= `course_teacher`.`course_id`
 WHERE `teachers`.`id` = 44;
 
 -- 4. Selezionare tutti gli studenti con i dati relativi al corso di laurea a cui sono iscritti e il relativo dipartimento, in ordine alfabetico per cognome e nome
@@ -110,3 +111,6 @@ ON `students`.`degree_id` = `degrees`.`id`
 JOIN `departments`
 ON `departments`.`id`= `degrees`.`department_id`
 ORDER BY `students`.`surname`;
+
+-- 5. Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
+
